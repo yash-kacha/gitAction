@@ -1,0 +1,23 @@
+name: Run Java Program
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'  # You can change to 11 or 21 as needed
+
+      - name: Compile Java code
+        run: javac AddNumbers.java
+
+      - name: Run Java program
+        run: java AddNumbers
