@@ -1,23 +1,22 @@
-name: Run Java Program
+name: Java CI
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'  # You can change to 11 or 21 as needed
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
 
-      - name: Compile Java code
-        run: javac sum.java
+    - name: Compile sum.java
+      run: javac sum.java
 
-      - name: Run Java program
-        run: java sum
+    - name: Run sum program
+      run: java sum
