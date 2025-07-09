@@ -17,7 +17,7 @@ jobs:
           java-version: '17'  # You can change to 11 or 21 as needed
 
       - name: Compile Java code
-        run: javac AddNumbers.java
+        run: javac sum.java
 
       - name: Run Java program
         run: java sum
